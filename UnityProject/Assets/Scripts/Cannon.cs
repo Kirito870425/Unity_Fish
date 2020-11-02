@@ -27,16 +27,10 @@ public class Cannon : MonoBehaviour
     private float _tmp = 0;
     private float _moneyValue = 10;
     // private float index =0;
-    public Dictionary<GameObject, float> LocalFishMapD = null;
+    public Dictionary<GameObject, Fish> LocalFishMapD = null;
     public float MapTest=0;
+
     
-    // private void LoaclMap(){
-    //     if(LocalFishMapD.ContainsKey(targetFishCs.gameObject) == false)
-    //     {
-    //         Fish fishCs = targetFishCs.gameObject.GetComponent<Fish>();
-    //         LocalFishMapD.Add(targetFishCs.gameObject, fishCs);
-    //     }
-    // }
     private void CannonMove(Vector3 test)
     {
         test.Normalize(); //轉成向量0~1
@@ -79,11 +73,11 @@ public class Cannon : MonoBehaviour
     
     //降冪排序。只取一隻，最大倍率魚
     private void TakeTheLargestFish(){
-        foreach(KeyValuePair<GameObject, float> kvp in LocalFishMapD.OrderByDescending(x => x.Value))
+        foreach(KeyValuePair<GameObject, Fish> kvp in LocalFishMapD.OrderByDescending(x => x.Value))
         {
             if(_searchBool){
                 CanonTest2(); //算方向
-                targetFishCs.fishdead = kvp.Value;
+                targetFishCs = kvp.Value;
                 FishTarget = kvp.Key; //鎖定魚
                 print(targetFishCs.gameObject +""+ targetFishCs.fishdead);
             }
@@ -108,18 +102,18 @@ public class Cannon : MonoBehaviour
             _fishCapacityScript._fishMap[_fishCapacityScript.FishObjKey].CapsuleCollider2D.enabled = true;
         }
     }
-    public void LockButton(){
-        _lockbool = true;
-        _tmp = 0;
-        _pointManager.Money.text = _moneyValue-- + "";
-    }
+    //public void LockButton(){
+    //    _lockbool = true;
+    //    _tmp = 0;
+    //    _pointManager.Money.text = _moneyValue-- + "";
+    //}
     private void Awake() {
         _fishCapacityScript = FindObjectOfType<FishCapacity>();
         _netCapacity = FindObjectOfType<NetCapacity>();
         _netSpawnObjectPool = FindObjectOfType<NetSpawnObjectPool>();
         _pointManager = FindObjectOfType<PointManagel>();
 
-        LocalFishMapD = new Dictionary<GameObject, float>();
+        LocalFishMapD = new Dictionary<GameObject, Fish>();
     }
     private void Update()
     {

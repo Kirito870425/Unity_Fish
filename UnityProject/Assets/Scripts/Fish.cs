@@ -85,11 +85,15 @@ public class Fish : MonoBehaviour
             KillFish();
         }
         if(collision.name == "LockArea"){
-            _canonCs.LocalFishMapD.Add(gameObject, _canonCs.MapTest);
+            //if (_canonCs.LocalFishMapD.ContainsKey(gameObject) == false)
+            //{
+            //    Fish fishCs = gameObject.GetComponent<Fish>();
+            //    _canonCs.LocalFishMapD.Add(gameObject, fishCs);
+            //}
 
             _canonCs._lockArea = true;
             // _canonCs._searchBool = true;
-            print("進");
+            //print("進");
         }
     }
     private void OnTriggerExit2D(Collider2D other) {
@@ -100,11 +104,11 @@ public class Fish : MonoBehaviour
             this.enabled = true;
         }
         if(other.name == "LockArea"){
-            _canonCs.LocalFishMapD.Remove(gameObject);
+            //_canonCs.LocalFishMapD.Remove(gameObject);
 
             _canonCs._lockArea = false;
             _canonCs._searchBool = false;
-            print("出");
+            //print("出");
         }
     }
 }

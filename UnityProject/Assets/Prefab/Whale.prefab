@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6728486389770733247}
   - component: {fileID: 6728486389770733244}
   - component: {fileID: 6728486389770733246}
-  - component: {fileID: 1454387690849765300}
   - component: {fileID: 3004112020643459545}
   - component: {fileID: 95577606106714604}
   - component: {fileID: 50883862468391580}
+  - component: {fileID: 54566692907211830}
   m_Layer: 0
   m_Name: Whale
   m_TagString: BigFish
@@ -50,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -61,6 +62,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -100,25 +102,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.04495939, y: 0.04050979}
   m_Size: {x: 1.8043115, y: 1.4354457}
   m_Direction: 1
---- !u!114 &1454387690849765300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6728486389770733245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6ab7a6793e00844aa42a7f05e3fae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishdead: 0.9
-  Speed: 30
-  FishPoint: 100000
-  _fishSpriteRenderer: {fileID: 6728486389770733244}
-  Gold: {fileID: 2963550874724363137, guid: 064d8370becded0479d960c250017d7f, type: 3}
-  CapsuleCollider2D: {fileID: 6728486389770733246}
-  tsetbool: 0
 --- !u!58 &3004112020643459545
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -175,3 +158,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &54566692907211830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6728486389770733245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6ab7a6793e00844aa42a7f05e3fae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishdead: 0.8
+  Speed: 30
+  FishPoint: 1000
+  _fishSpriteRenderer: {fileID: 6728486389770733244}
+  Gold: {fileID: 2963550874724363137, guid: 064d8370becded0479d960c250017d7f, type: 3}
+  CapsuleCollider2D: {fileID: 6728486389770733246}
+  tsetbool: 0
